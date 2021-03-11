@@ -1,0 +1,20 @@
+h1,
+h2,
+th {
+  color: #00afa2;
+}
+
+form {
+  display: flex;
+}
+.coluna {
+  padding: 10px;
+}
+html {
+  border: 50px solid #00afa2;
+  height: 100%;
+}
+button {
+  font-size: 20px;
+  margin-left: 10px;
+}

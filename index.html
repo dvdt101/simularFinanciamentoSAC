@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="PT-BR">
+  <head>
+    <title>Simular financiamento</title>
+    <meta charset="utf-8" />
+    <link rel="stylesheet" href="css/style.css" />
+  </head>
+  <body>
+    <h1>Simulação do financiamento</h1>
+    <form>
+      <div class="coluna">
+        <label name="valor">Valor:</label><br />
+        <input name="valor" type="number" id="inputValor" />
+      </div>
+      <div class="coluna">
+        <label name="prazo">Prazo(anos):</label><br />
+        <input name="juros" type="number" id="inputPrazo" />
+      </div>
+      <div class="coluna">
+        <label name="juros">Juros ao ano:</label><br />
+        <input name="prazo" type="number" id="inputJuros" />
+      </div>
+    </form>
+    <button id="simularBtn">Simular</button>
+    <h2>Resultado:</h2>
+    <form>
+      <div class="coluna">
+        <label>Prazo(meses):</label><br />
+        <input id="inputPrazoMeses" value="0" readonly />
+      </div>
+      <div class="coluna">
+        <label>Juros ao mês:</label><br />
+        <input id="inputJuroMes" value="0" readonly />
+      </div>
+      <div class="coluna">
+        <label>Juros acumulados:</label><br />
+        <input id="inputJurosAcumulados" value="0" readonly />
+      </div>
+    </form>
+    <table>
+      <thead>
+        <tr>
+          <th>Prestações</th>
+          <th>Amortização</th>
+          <th>juros</th>
+          <th>total</th>
+        </tr>
+      </thead>
+      <tbody id="tabelaParcelas"></tbody>
+    </table>
+    <script src="js/script.js"></script>
+  </body>
+</html>

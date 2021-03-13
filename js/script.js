@@ -22,12 +22,13 @@ simularBtn.addEventListener("click", function () {
 
   //declarando juros acumulados
   let jurosAcumulados = 0;
+  var total = 0;
 
   //criando loop para calcular 5 prestações
   for (let i = 0; i < 5; i++) {
     //calculando juros e total para a tabela
     let juros = (valor - i * amortizacao) * resultadoJurosMes;
-    let total = (valor - i * amortizacao) * resultadoJurosMes + amortizacao;
+    total = (valor - i * amortizacao) * resultadoJurosMes + amortizacao;
 
     //criando linhas e cedulas  para o tbody no html
     let row = tabelaParcelas.insertRow();
@@ -46,9 +47,22 @@ simularBtn.addEventListener("click", function () {
     cellJuros.innerHTML = juros.toFixed(2) + "&nbsp &nbsp";
     cellTotal.innerHTML = total.toFixed(2);
 
-    //calculando juros acumulados
-    jurosAcumulados += (valor - i * amortizacao) * resultadoJurosMes;
+    /*jurosAcumulados += (valor - i * amortizacao) * resultadoJurosMes;
+
+    var saldoDevedor = total - i * amortizacao;
+    console.log(saldoDevedor);
+    var jurosP = saldoDevedor * juros;
+    console.log(jurosP);
+    total += jurosP;*/
+  }
+
+  //calculando juros acumulados
+  var totalj = 0;
+  for (var i = 0; i < resultadoPrazoMes; i++) {
+    var saldoDevedor = valor - i * amortizacao;
+    var jurosP = saldoDevedor * resultadoJurosMes;
+    totalj += jurosP;
   }
   //imprimindo resultado de juros acumulados
-  inputJurosAcumulados.value = jurosAcumulados;
+  inputJurosAcumulados.value = totalj.toFixed(2);
 });

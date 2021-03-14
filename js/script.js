@@ -20,7 +20,7 @@ simularBtn.addEventListener("click", function () {
   var total = 0;
 
   //criando loop para calcular 5 prestações
-  for (let i = 0; i < 5; i++) {
+  for (let i = 0; i < resultadoPrazoMes; i++) {
     //calculando juros e total para a tabela
     let juros = (valor.valueAsNumber - i * amortizacao) * resultadoJurosMes;
     total =

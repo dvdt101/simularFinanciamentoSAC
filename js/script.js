@@ -1,36 +1,33 @@
 //buscando elementos no html
-let inputValor = document.getElementById("inputValor");
-let inputPrazo = document.getElementById("inputPrazo");
-let inputJuros = document.getElementById("inputJuros");
+let valor = document.getElementById("inputValor");
 let simularBtn = document.getElementById("simularBtn");
-let inputPrazoMeses = document.getElementById("inputPrazoMeses");
-let inputJurosMes = document.getElementById("inputJuroMes");
-let inputJurosAcumulados = document.getElementById("inputJurosAcumulados");
-let tabelaParcelas = document.getElementById("tabelaParcelas");
 
 //adicionado uma função a o evento click
 simularBtn.addEventListener("click", function () {
-  let valor = inputValor.valueAsNumber;
-
   //calculando Prazo meses, Juros ao mês e amortização
-  let resultadoPrazoMes = inputPrazo.valueAsNumber * 12;
+  let resultadoPrazoMes =
+    document.getElementById("inputPrazo").valueAsNumber * 12;
+
+  let inputJuros = document.getElementById("inputJuros");
   let resultadoJurosMes = Math.pow(1 + inputJuros.valueAsNumber, 1 / 12) - 1;
-  let amortizacao = valor / resultadoPrazoMes;
+
+  let amortizacao = valor.valueAsNumber / resultadoPrazoMes;
   // imprimindo os resultados
-  inputPrazoMeses.value = resultadoPrazoMes;
-  inputJurosMes.value = resultadoJurosMes;
+  document.getElementById("inputPrazoMeses").value = resultadoPrazoMes;
+  document.getElementById("inputJuroMes").value = resultadoJurosMes;
 
   //declarando juros acumulados
-  let jurosAcumulados = 0;
   var total = 0;
 
   //criando loop para calcular 5 prestações
   for (let i = 0; i < 5; i++) {
     //calculando juros e total para a tabela
-    let juros = (valor - i * amortizacao) * resultadoJurosMes;
-    total = (valor - i * amortizacao) * resultadoJurosMes + amortizacao;
+    let juros = (valor.valueAsNumber - i * amortizacao) * resultadoJurosMes;
+    total =
+      (valor.valueAsNumber - i * amortizacao) * resultadoJurosMes + amortizacao;
 
     //criando linhas e cedulas  para o tbody no html
+    let tabelaParcelas = document.getElementById("tabelaParcelas");
     let row = tabelaParcelas.insertRow();
     let cellPrestacoes = row.insertCell();
     let cellamortizacao = row.insertCell();
@@ -46,23 +43,15 @@ simularBtn.addEventListener("click", function () {
     cellamortizacao.innerHTML = +amortizacao.toFixed(2);
     cellJuros.innerHTML = juros.toFixed(2) + "&nbsp &nbsp";
     cellTotal.innerHTML = total.toFixed(2);
-
-    /*jurosAcumulados += (valor - i * amortizacao) * resultadoJurosMes;
-
-    var saldoDevedor = total - i * amortizacao;
-    console.log(saldoDevedor);
-    var jurosP = saldoDevedor * juros;
-    console.log(jurosP);
-    total += jurosP;*/
   }
 
   //calculando juros acumulados
   var totalj = 0;
   for (var i = 0; i < resultadoPrazoMes; i++) {
-    var saldoDevedor = valor - i * amortizacao;
+    var saldoDevedor = valor.valueAsNumber - i * amortizacao;
     var jurosP = saldoDevedor * resultadoJurosMes;
     totalj += jurosP;
   }
   //imprimindo resultado de juros acumulados
-  inputJurosAcumulados.value = totalj.toFixed(2);
+  document.getElementById("inputJurosAcumulados").value = totalj.toFixed(2);
 });

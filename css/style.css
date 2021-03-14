@@ -3,18 +3,90 @@ h2,
 th {
   color: #00afa2;
 }
-
-form {
+label {
+  font-family: arial, sans-serif;
+  font-size: 15px;
+}
+input {
+  width: 100%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  display: inline-block;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+}
+.conteudo {
   display: flex;
+  justify-content: center;
+}
+
+.tdiv {
+  display: flex;
+  justify-content: center;
 }
 .coluna {
   padding: 10px;
 }
 html {
-  border: 50px solid #00afa2;
+  background-color: rgb(190, 218, 226);
+}
+body {
+  background-color: #fff;
+  padding: 8px;
   height: 100%;
 }
 button {
-  font-size: 20px;
-  margin-left: 10px;
+  border: none;
+  color: white;
+  padding: 10px 25px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  cursor: pointer;
+  background-color: #00afa2;
+}
+button:hover {
+  transform: scale(1.1);
+}
+
+table {
+  font-family: arial, sans-serif;
+  border-collapse: collapse;
+  width: 100%;
+}
+
+td,
+th {
+  border: 1px solid #dddddd;
+  text-align: center;
+  padding: 8px;
+}
+
+tr:nth-child(even) {
+  background-color: #dddddd;
+}
+@media only screen and (max-width: 768px) {
+  /*Mobile*/
+  .conteudo {
+    display: block;
+    align-items: center;
+  }
+  body {
+    height: 100%;
+  }
+  table {
+    font-family: arial, sans-serif;
+    border-collapse: collapse;
+    width: 70%;
+  }
+
+  td,
+  th {
+    border: 1px solid #dddddd;
+    text-align: center;
+    padding: 2px;
+  }
 }

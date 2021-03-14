@@ -4,50 +4,69 @@
     <title>Simular financiamento</title>
     <meta charset="utf-8" />
     <link rel="stylesheet" href="css/style.css" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
   </head>
   <body>
-    <h1>Simulação do financiamento</h1>
-    <form>
+    <h1 class="conteudo">Simulação do financiamento</h1>
+    <form class="conteudo">
       <div class="coluna">
         <label name="valor">Valor:</label><br />
-        <input name="valor" type="number" id="inputValor" />
+        <input
+          name="valor"
+          type="number"
+          id="inputValor"
+          placeholder="Digite valor total"
+        />
       </div>
       <div class="coluna">
         <label name="prazo">Prazo(anos):</label><br />
-        <input name="prazo" type="number" id="inputPrazo" />
+        <input
+          name="prazo"
+          type="number"
+          id="inputPrazo"
+          placeholder="Digite Prazo anual"
+        />
       </div>
       <div class="coluna">
         <label name="juros">Juros ao ano:</label><br />
-        <input name="juros" type="number" id="inputJuros" />
+        <input
+          name="juros"
+          type="number"
+          id="inputJuros"
+          placeholder="Digite Juros Anual"
+        />
       </div>
     </form>
-    <button id="simularBtn">Simular</button>
-    <h2>Resultado:</h2>
-    <form>
+    <div class="conteudo"><button id="simularBtn">Simular</button></div>
+
+    <h2 class="conteudo">Resultado:</h2>
+    <form class="conteudo">
       <div class="coluna">
         <label>Prazo(meses):</label><br />
-        <input id="inputPrazoMeses" value="0" readonly />
+        <input id="inputPrazoMeses" value="0" readonly disabled />
       </div>
       <div class="coluna">
         <label>Juros ao mês:</label><br />
-        <input id="inputJuroMes" value="0" readonly />
+        <input id="inputJuroMes" value="0" readonly disabled />
       </div>
       <div class="coluna">
         <label>Juros acumulados:</label><br />
-        <input id="inputJurosAcumulados" value="0" readonly />
+        <input id="inputJurosAcumulados" value="0" readonly disabled />
       </div>
     </form>
-    <table>
-      <thead>
-        <tr>
-          <th>Prestações</th>
-          <th>Amortização</th>
-          <th>juros</th>
-          <th>total</th>
-        </tr>
-      </thead>
-      <tbody id="tabelaParcelas"></tbody>
-    </table>
+    <div class="tdiv">
+      <table>
+        <thead>
+          <tr>
+            <th>Prestações</th>
+            <th>Amortização</th>
+            <th>juros</th>
+            <th>total</th>
+          </tr>
+        </thead>
+        <tbody id="tabelaParcelas"></tbody>
+      </table>
+    </div>
     <script src="js/script.js"></script>
   </body>
 </html>
